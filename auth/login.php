@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {				// case: user submitted login for
     $password = $_POST['password'];
 	
 // check if submitted userinformations (username & password) are correct
-    if (check($username, $password)){
+    if (check($username, $password)){						// Use defined method in users.php
 		$_SESSION['authorized'] = true;					// if successful set the session as authorized
 		redirect(); 									// same as initial stage (test if user is authenticated - redirect to referrer)
         exit();											// close script
