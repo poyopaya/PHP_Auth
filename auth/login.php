@@ -20,10 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {				// case: user submitted login for
 // check if submitted userinformations (username & password) are correct
     if (check($username, $password)){						// Use defined method in users.php
 		$_SESSION['authorized'] = true;					// if successful set the session as authorized
-		redirect(); 									// same as initial stage (test if user is authenticated - redirect to referrer)
-        exit();											// close script
+		redirect(); 							// same as initial stage (test if user is authenticated - redirect to referrer)
+        exit();									// close script
     } else {
-		echo '<p>You entered a wrong password/username</p>';
+		echo '<p>You entered a wrong password/username</p>';		// optional: shows a simple message if wrong credentials were submitted
 	}
 }
 ?>
@@ -32,10 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {				// case: user submitted login for
 		<title>Login</title>
 	</head>
 	<body>
-		<form id="loginform" action="login.php" method="post">
-			<input type="text" id="username" placeholder="Username">
-			<input type="password" id="password" placeholder="Password">
-			<input type="submit" value="login">
+		<form id="loginform" action="login.php" method="post"> <!-- make shure to specify the form with the method="POST" !! -->
+			<input type="text" id="username" placeholder="Username"> <!-- this input should get the id username, otherwise you need to change it also in the php script -->
+			<input type="password" id="password" placeholder="Password"> <!-- id: same specifications as username -->
+			<input type="submit" value="login"> <!-- create a submit button whic triggers the form submit -->
 		</form>
  	</body>
 </html>
